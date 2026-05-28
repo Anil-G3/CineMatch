@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMatch - Movie Detail</title>
+	<link rel="icon" href="data:,">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="detail-page-boxed">
+
+    <nav class="top-navbar">
+        <button class="back-btn" onclick="window.history.back()">← BACK</button>
+        <div class="nav-links">
+            <span id="welcome-name"></span>
+            <a href="watchlist.html">Watchlist</a>
+            <a href="profile.html">Profile</a>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="app-window-wrapper">
+        <div class="app-window">
+            
+            <div class="poster-column" id="movie-poster">
+                <img id="poster-img" src="" alt="Movie Poster" onerror="this.onerror=null; this.src='/image/no-poster.png'">
+            </div>
+
+            <div class="details-column">
+                
+                <div id="movie-info">
+                    <h1 id="movie-title"></h1>
+                    
+                    <div class="movie-meta">
+                        <span id="movie-year"></span>
+                        <span class="dot">•</span>
+                        <span id="movie-duration"></span>
+                        <span class="dot">•</span>
+                        <span id="movie-director"></span>
+                    </div>
+
+                    <div id="movie-genres"></div>
+                    
+                    <p id="movie-description"></p>
+
+					<div class="rating-row">
+					    <div class="score" id="movie-rating">
+					        <!-- Filled by JS -->
+					    </div>
+					    <span class="total-votes" id="movie-total-ratings"></span>
+					    <button id="watchlist-btn" class="btn-primary small-btn">
+					        + Add to Watchlist
+					    </button>
+					</div>
+                </div>
+
+                <hr class="divider">
+
+                <div class="compact-interactive-area">
+                    <div id="rating-section" class="compact-box">
+                        <h3>Rate this Movie</h3>
+                        <div class="rating-controls">
+                            <div id="stars" class="small-stars">
+                                <span class="star" onclick="setRating(1)">★</span>
+                                <span class="star" onclick="setRating(2)">★</span>
+                                <span class="star" onclick="setRating(3)">★</span>
+                                <span class="star" onclick="setRating(4)">★</span>
+                                <span class="star" onclick="setRating(5)">★</span>
+                            </div>
+                            <span id="rating-label">Select</span>
+                        </div>
+                        <div class="input-row">
+                            <textarea id="review-input" placeholder="Add a comment..."></textarea>
+                            <button id="submit-rating-btn" class="btn-submit-small">Post</button>
+                        </div>
+                        <div id="rating-msg"></div>
+                    </div>
+
+                    <div id="reviews-section" class="compact-box">
+                        <h3>Reviews</h3>
+                        <div id="reviews-list" class="small-reviews-list"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/movie-detail.js"></script>
+</body>
+</html>

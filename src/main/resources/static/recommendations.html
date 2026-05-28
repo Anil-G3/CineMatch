@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CineMatch - Recommendations</title>
+	<link rel="icon" href="data:,">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="home-page">
+
+	<nav id="navbar">
+		<div class="nav-logo" onclick="window.location.href='/home.html'">
+			<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
+				stroke-linecap="round" stroke-linejoin="round">
+				<polygon points="23 7 16 12 23 17 23 7" />
+				<rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+			</svg>
+			CineMatch
+		</div>
+		<div class="nav-links">
+			<span id="welcome-name"></span>
+			<a href="home.html">Home</a>
+			<a href="watchlist.html">Watchlist</a>
+			<a href="profile.html">Profile</a>
+			<button onclick="logout()">Logout</button>
+		</div>
+	</nav>
+
+	<div id="recommendations-header">
+		<h2>Recommended for you</h2>
+		<p id="recommendations-subtitle"></p>
+	</div>
+
+	<div id="movies-grid"></div>
+
+	<div id="no-results" style="display:none;">
+		<p>No recommendations yet. Rate some movies first!</p>
+	</div>
+
+	<script src="js/api.js"></script>
+	<script src="js/recommendations.js"></script>
+
+</body>
+
+</html>

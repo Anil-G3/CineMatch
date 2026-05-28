@@ -1,0 +1,1609 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --marvel-red: #ED1D24;
+    --marvel-dark-red: #B91C1C;
+    --bg-white: #FFFFFF;
+    --text-dark: #111827;
+    --text-muted: #6B7280;
+    --border-color: #E5E7EB;
+    --btn-bg: #111111; 
+    --btn-hover: #374151;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: linear-gradient(135deg, #C01820  0%, #7f0000 50%, #2d2d2d  100%);
+    color: var(--text-dark);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem; 
+}
+
+/* --- SPLIT LAYOUT CONTAINERS --- */
+
+.auth-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 660px;
+    background: var(--bg-white);
+    border-radius: 24px;
+    overflow: hidden; 
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.login-wrapper {
+    min-height: 660px;
+}
+
+.auth-box {
+    flex: 1; 
+    padding: 2.5rem 3rem;
+    background: var(--bg-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tagline {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 0.75rem;
+}
+
+/* Left Side: The Picture */
+.auth-image {
+    flex: 1;
+    background-image: url('/image/spiderman.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Custom Scrollbar */
+.auth-box::-webkit-scrollbar { width: 6px; }
+.auth-box::-webkit-scrollbar-track { background: transparent; }
+.auth-box::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 10px; }
+
+/* --- TYPOGRAPHY & FORMS --- */
+
+.logo {
+	font-family: 'Space Grotesk', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--text-dark);
+    letter-spacing: -1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.form-group label {
+	
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;     /* Wide tracking on labels = editorial feel */
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    border: 1.5px solid var(--border-color);
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+    outline: none;
+    background: #F9FAFB;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input {
+    padding-left: 3.75rem;
+}
+
+.input-wrapper input.icon-right {
+    padding-left: 1.25rem;
+    padding-right: 3.75rem;
+}
+
+.input-icon {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    background: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: none;
+    left: 8px;
+}
+
+.input-icon.right {
+    left: auto;
+    right: 8px;
+}
+
+.input-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: #111827;
+    stroke-width: 1.8;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.form-group input::placeholder {
+    color: #9CA3AF;
+    font-weight: 400;
+}
+
+.form-group input:focus {
+    border-color: var(--marvel-red);
+    box-shadow: 0 0 0 4px rgba(237, 29, 36, 0.08);
+}
+
+.btn-primary {
+    width: 100%;
+    background-color: var(--btn-bg);
+    color: var(--bg-white);
+    padding: 1rem;
+    border: none;
+    border-radius: 50px;
+    font-family: 'DM Sans ', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;     /* Syne buttons read well with slight tracking */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: #B91C1C;
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.switch-link {
+    text-align: center;
+    margin-top: 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.switch-link a {
+    color: var(--marvel-red);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.switch-link a:hover {
+    color: var(--marvel-dark-red);
+    text-decoration: underline;
+}
+
+/* --- ERROR / SUCCESS MESSAGES --- */
+
+.error-msg {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--marvel-red);
+    margin-bottom: 0.75rem;
+}
+
+.success-msg {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #16a34a;
+    margin-bottom: 0.75rem;
+}
+
+/* Collapse completely when empty — no space wasted */
+.error-msg:empty,
+.success-msg:empty {
+    display: none;
+    margin: 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .auth-image {
+        display: none;
+    }
+    .auth-box {
+        padding: 2.5rem 2rem;
+    }
+}
+
+.home-page {
+	align-items: center;
+}
+
+
+/* ---- HOME PAGE ---- */
+
+body.home-page {
+    display: block;
+    padding: 0;
+    background: #111827;
+}
+
+#navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(17, 24, 39, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    gap: 1.5rem;
+}
+
+.nav-logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #fff;
+    cursor: pointer;
+    white-space: nowrap;
+    /* Flexbox guarantees perfect vertical alignment */
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+}
+
+.nav-search {
+    display: flex;
+    flex: 1;
+    max-width: 400px;
+    gap: 0.5rem;
+}
+
+.nav-search input {
+    flex: 1;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.nav-search input::placeholder { color: rgba(255,255,255,0.4); }
+.nav-search input:focus { border-color: var(--marvel-red); }
+
+.nav-search button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    border: none;
+    background: var(--marvel-red);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.nav-search button:hover { background: var(--marvel-dark-red); }
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    white-space: nowrap;
+}
+
+.nav-links span {
+    color: #F5C842;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.5rem 1.1rem;
+    border-radius: 50px;
+    border: 1.5px solid #D4AF37;
+    background: rgba(212, 175, 55, 0.12);
+    cursor: default;
+    transition: box-shadow 0.3s ease;
+}
+
+.nav-links span:hover {
+    box-shadow: 0 0 10px 3px rgba(255, 215, 0, 0.65);
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.5rem 1.1rem;
+    border-radius: 50px;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    background: transparent;
+    transition: all 0.3s;
+}
+
+.nav-links a:hover {
+    background: var(--marvel-red);
+    border-color: var(--marvel-red);
+}
+
+.nav-links button {
+    padding: 0.5rem 1.1rem;
+    border-radius: 50px;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.nav-links button:hover {
+    background: var(--marvel-red);
+    border-color: var(--marvel-red);
+}
+
+#genre-filter {
+    display: flex;
+	justify-content: center;
+    gap: 0.6rem;
+    padding: 1.25rem 2rem;
+    flex-wrap: wrap;
+}
+
+.genre-btn {
+    padding: 0.45rem 1.1rem;
+    border-radius: 50px;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.genre-btn:hover {
+    border-color: var(--marvel-red);
+    color: #fff;
+}
+
+.genre-btn.active {
+    background: var(--marvel-red);
+    border-color: var(--marvel-red);
+    color: #fff;
+}
+
+#movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.25rem;
+    padding: 0.5rem 2rem 2rem;
+}
+
+.movie-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.movie-card:hover {
+    transform: scale(1.02);
+    background: rgba(255,255,255,0.1);
+}
+
+.movie-card img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    display: block;
+}
+
+.card-info {
+    padding: 0.75rem;
+}
+
+.card-info h3 {
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-info p {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8rem;
+    margin-bottom: 0.15rem;
+}
+
+.card-info p:last-child { color: #f59e0b; }
+
+#no-results {
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+    padding: 4rem;
+    font-size: 1rem;
+}
+
+
+/* ---- MOVIE DETAIL PAGE (BOXED UI) ---- */
+
+body.detail-page-boxed {
+    display: flex !important;
+    align-items: center;       /* Perfectly centers the box vertically on the screen */
+    justify-content: center;   /* Perfectly centers the box horizontally */
+    height: 100vh;             /* Locks the view to your exact monitor height */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #C01820 0%, #7f0000 50%, #2d2d2d 100%);
+    overflow: hidden;
+    position: relative;        /* Crucial for the floating navbar to work */
+}
+
+/* 1. WIDE FLOATING TOP NAVIGATION */
+.top-navbar {
+    position: absolute;        /* This detaches it so it doesn't push the box down! */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 4rem;      /* Wide side gaps, and a clean gap from the top edge */
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.top-navbar .back-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.top-navbar .back-btn:hover { color: #fff; }
+
+.top-navbar .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.top-navbar .nav-links span, 
+.top-navbar .nav-links a {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.top-navbar .nav-links a:hover { color: #fff; }
+
+.top-navbar .logout-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.top-navbar .logout-btn:hover {
+    border-color: #fff;
+    background: rgba(255,255,255,0.1);
+}
+
+/* 2. THE APP WINDOW WRAPPER */
+.app-window-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+/* ... keep everything from .app-window downwards exactly the same ... */
+
+.app-window {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    height: 75vh;
+    min-height: 600px;
+    background: #0a1628;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+/* Left Column: 35% Poster */
+.poster-column {
+    width: 35%;
+    height: 100%;
+    background: #000;
+}
+
+.poster-column img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Right Column: 65% Details */
+.details-column {
+    width: 65%;
+    height: 100%;
+    padding: 3rem 4rem; /* Increased padding for better framing */
+    overflow: auto; /* STRICTLY Locks the scroll */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Dynamically spreads content to fill the height */
+}
+
+.details-column::-webkit-scrollbar { width: 4px; }
+.details-column::-webkit-scrollbar-track { background: transparent; }
+.details-column::-webkit-scrollbar-thumb { 
+    background: rgba(255,255,255,0.15); 
+    border-radius: 10px; 
+}
+.details-column { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+.details-column:hover { scrollbar-color: rgba(255,255,255,0.15) transparent; }
+
+.small-reviews-list {
+    overflow-y: visible;
+}
+
+/* Typography & Info - SCALED UP */
+#movie-info h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 0.75rem;
+    border-left: 4px solid var(--marvel-red);
+    padding-left: 1rem;
+}
+
+#movie-rating {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.movie-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    padding-left: 1.25rem;
+}
+
+.movie-meta span:not(.dot) {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.3rem 0.85rem;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.movie-meta .dot {
+    display: none;
+}
+#movie-genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+#movie-genres .genre-tag {
+    border: 1.5px solid #D4AF37;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    color: #F5C842;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: transparent;
+    cursor: default;
+    transition: box-shadow 0.3s ease;
+}
+
+#movie-genres .genre-tag:hover {
+    box-shadow: 0 0 10px 3px rgba(255, 215, 0, 0.65);
+}
+
+#movie-description {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.rating-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.rating-row .score {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.rating-row .score svg {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+}
+
+.rating-row .score .rating-value {
+    line-height: 1;
+}
+
+.rating-row .star-icon { 
+    color: #f59e0b; 
+}
+
+.rating-row .total-votes {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.small-btn {
+    padding: 0.75rem 1.75rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    width: auto;
+    align-self: center;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: rgba(212, 175, 55, 0.2);
+    margin: 1.5rem 0;
+}
+
+/* Review & Rating Area - SCALED UP */
+.compact-interactive-area {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.compact-box h3 {
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.75rem;
+}
+
+.rating-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.small-stars {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.small-stars .star {
+    font-size: 1.5rem;
+    color: rgba(212, 175, 55, 0.3);
+    cursor: pointer;
+    line-height: 1;
+    display: inline-block;
+}
+
+.small-stars .star:hover,
+.small-stars .star.selected { color: #F5C842; }
+
+#rating-label { 
+    font-size: 0.95rem; 
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1;
+}
+
+#rating-label { font-size: 0.95rem; color: rgba(255, 255, 255, 0.7); }
+
+.input-row {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+#review-input {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.95rem;
+    height: 50px; 
+    resize: none;
+    outline: none;
+}
+#review-input:focus { border-color: var(--marvel-red); }
+
+/* --- CALL TO ACTION BUTTONS --- */
+
+/* Watchlist Button Override */
+#watchlist-btn.small-btn {
+    background: var(--marvel-red);
+    color: #fff;
+    border: none;
+    margin-top: 0;
+    transition: background 0.2s, transform 0.1s;
+}
+
+#watchlist-btn.small-btn:hover {
+    background: var(--marvel-dark-red);
+}
+
+#watchlist-btn.small-btn:active {
+    transform: scale(0.98); 
+}
+
+/* Post Review Button */
+.btn-submit-small {
+    background: var(--marvel-red); 
+    color: #fff;
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    height: 50px;
+}
+
+.btn-submit-small:hover { 
+    background: var(--marvel-dark-red); 
+}
+
+.btn-submit-small:active {
+    transform: scale(0.96); 
+}
+
+#rating-msg { margin-top: 0.2rem; font-size: 0.85rem; color: var(--marvel-red); }
+
+.small-reviews-list .review-item {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 0.75rem 0;
+    margin: 0;
+    border-radius: 0;
+}
+.small-reviews-list .review-item:last-child { border-bottom: none; }
+.small-reviews-list .review-item p { margin-bottom: 0.2rem; font-size: 0.95rem; }
+
+
+/* ---- WATCHLIST PAGE ---- */
+
+#watchlist-header {
+    padding: 2rem 2rem 0.5rem;
+}
+
+#watchlist-header h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+#watchlist-header p {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+}
+
+#watchlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.25rem;
+    padding: 1rem 2rem 2rem;
+}
+
+.watchlist-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: transform 0.3s, background 0.3s;
+}
+
+.watchlist-card:hover {
+    transform: translateY(-6px);
+    background: rgba(255,255,255,0.1);
+}
+
+.watchlist-card img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+}
+
+.watchlist-card-info {
+    padding: 0.75rem;
+}
+
+.watchlist-card-info h3 {
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.watchlist-card-info p {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8rem;
+    margin-bottom: 0.15rem;
+}
+
+.watchlist-card-info p:last-of-type {
+    color: #f59e0b;
+}
+
+.remove-btn {
+    margin-top: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.remove-btn:hover {
+    background: var(--marvel-red);
+    border-color: var(--marvel-red);
+    color: #fff;
+}
+
+#no-results {
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+    padding: 4rem;
+    font-size: 1rem;
+}
+
+#no-results button {
+    margin-top: 1rem;
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    border: none;
+    background: var(--marvel-red);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#no-results button:hover {
+    background: var(--marvel-dark-red);
+}
+
+
+/* ============================================================
+   CINEMATCH — PROFILE PAGE REDESIGN
+   Drop this into your style.css, replacing the existing
+   /* ============================================================
+      CINEMATCH — PROFILE PAGE REDESIGN
+      Drop this into your style.css, replacing the existing
+
+      ============================================================ */
+
+
+   /* ── 1. PAGE SHELL ─────────────────────────────────────────── */
+
+   body.profile-page {
+       display:         flex;
+       flex-direction:  column;
+       align-items:     center;
+       padding:         0;
+       background:      linear-gradient(135deg, #C01820 0%, #7f0000 50%, #2d2d2d 100%);
+       min-height:      100vh;
+       overflow-x:      hidden;
+   }
+
+   /* Navbar stays full-width / sticky — transparent on profile page */
+   body.profile-page #navbar {
+       width: 100%;
+       align-self: stretch;
+       background: transparent;
+       backdrop-filter: none;
+   }
+   
+   #recommendations-header {
+       padding: 2rem 2rem 0.5rem;
+   }
+
+   #recommendations-header h2 {
+       font-size: 1.75rem;
+       font-weight: 800;
+       color: #fff;
+   }
+
+   #recommendations-header p {
+       color: rgba(255,255,255,0.5);
+       font-size: 0.95rem;
+       margin-top: 0.25rem;
+   }
+
+
+   /* ── 2. CARD SHELL ─────────────────────────────────────────── */
+   /*
+      .profile-hero  → top half of the card  (avatar + identity)
+      #profile-container → bottom half        (stats + genres)
+      Together they form one seamless card.
+   */
+
+   body.profile-page .profile-hero {
+       width:            100%;
+       max-width:        900px;
+       margin:           2.5rem auto 0;
+       padding:          2.5rem 3rem;
+       background:       #0a1628;
+       border-radius:    22px 22px 0 0;
+       border:           1px solid rgba(255, 255, 255, 0.07);
+       border-bottom:    none;
+       box-shadow:       0 -8px 40px rgba(0, 0, 0, 0.35);
+       display:          flex;
+       align-items:      center;               /* center so avatar never stretches */
+       gap:              2.5rem;
+       position:         relative;
+       overflow:         hidden;
+   }
+
+   /* Red-to-transparent ambient glow behind avatar side */
+   body.profile-page .profile-hero::before {
+       content:    '';
+       position:   absolute;
+       inset:      0;
+       background: linear-gradient(
+           120deg,
+           rgba(237, 29, 36, 0.18) 0%,
+           transparent 55%
+       );
+       pointer-events: none;
+   }
+
+   body.profile-page #profile-container {
+       width:         100%;
+       max-width:     900px;
+       margin:        0 auto 3rem;
+       padding:       2rem 2.5rem 2.5rem;
+       background:    #0a1628;
+       border-radius: 0 0 22px 22px;
+       border:        1px solid rgba(255, 255, 255, 0.07);
+       border-top:    1px solid rgba(212, 175, 55, 0.18);
+       box-shadow:    0 30px 60px rgba(0, 0, 0, 0.55);
+   }
+
+
+   /* ── 3. PROFILE HERO — AVATAR CIRCLE ───────────────────────── */
+
+   body.profile-page #profile-avatar {
+       flex-shrink:     0;
+       width:           90px;
+       height:          90px;
+       aspect-ratio:    1 / 1;
+       border-radius:   50%;
+       background:      var(--marvel-red);
+       border:          3px solid #D4AF37;
+       box-shadow:      0 0 0 7px rgba(212, 175, 55, 0.12),
+                        0 0 32px rgba(237, 29, 36, 0.5);
+       display:         flex;
+       align-items:     center;
+       justify-content: center;
+       font-size:       2.4rem;
+       font-weight:     800;
+       color:           #fff;
+       letter-spacing:  -1px;
+       margin:          0;
+   }
+
+   /* ── 4. PROFILE HERO — RIGHT: IDENTITY ─────────────────────── */
+
+   /* ── 4. PROFILE HERO — RIGHT: IDENTITY ─────────────────────── */
+
+   body.profile-page #profile-info {
+       flex:            1;
+       padding:         0;
+       display:         flex;
+       flex-direction:  column;
+       justify-content: center;
+       gap:             0.3rem;
+   }
+
+   body.profile-page #profile-info h1 {
+       color:          #fff;
+       font-size:      2.1rem;
+       font-weight:    800;
+       line-height:    1.1;
+       margin-bottom:  0.2rem;
+       letter-spacing: -0.5px;
+       width:          fit-content; /* shrinks to text — makes ::after match name length */
+   }
+
+   /* Gold accent line — always exactly as wide as the name */
+   body.profile-page #profile-info h1::after {
+       content:       '';
+       display:       block;
+       width:         100%;
+       height:        3px;
+       background:    linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.2) 100%);
+       border-radius: 2px;
+       margin-top:    0.55rem;
+   }
+
+   body.profile-page #profile-info p {
+       color:      rgba(255, 255, 255, 0.5);
+       font-size:  0.92rem;
+       margin-top: 0.55rem;
+       font-weight: 500;
+   }
+
+   /* "Member since" gets a subtle badge feel */
+   body.profile-page #profile-member-since {
+       display:        inline-flex;
+       align-items:    center;
+       gap:            0.4rem;
+       margin-top:     0.75rem !important;
+       padding:        0.35rem 0.9rem;
+       border-radius:  50px;
+       background:     rgba(212, 175, 55, 0.1);
+       border:         1px solid rgba(212, 175, 55, 0.3);
+       color:          #F5C842 !important;
+       font-size:      0.8rem !important;
+       font-weight:    700 !important;
+       letter-spacing: 0.04em;
+       text-transform: uppercase;
+       width:          fit-content;
+   }
+
+
+   /* ── 5. STATS ROW — CAPSULE PILLS ──────────────────────────── */
+
+   body.profile-page #profile-stats {
+       display:       flex;
+       gap:           1rem;
+       margin-bottom: 1.75rem;
+   }
+
+   body.profile-page .stat-card {
+       flex:            1;
+       background:      rgba(255, 255, 255, 0.04);
+       border:          1px solid rgba(255, 255, 255, 0.08);
+       border-radius:   50px;
+       border-top:      1px solid rgba(255, 255, 255, 0.08); /* remove old red bar */
+       padding:         1.25rem 2rem;
+       display:         flex;
+       flex-direction:  column;
+       align-items:     center;
+       justify-content: center;
+       gap:             0.25rem;
+       transition:      background 0.3s, box-shadow 0.3s;
+   }
+
+   body.profile-page .stat-card:hover {
+       background:  rgba(255, 255, 255, 0.08);
+       box-shadow:  0 0 0 1px rgba(212, 175, 55, 0.25),
+                    0 8px 24px rgba(0, 0, 0, 0.25);
+   }
+
+   body.profile-page .stat-card h3 {
+       color:       #fff;
+       font-size:   2.2rem;
+       font-weight: 800;
+       margin:      0;
+       line-height: 1;
+   }
+
+   /* No dot — remove the ::after entirely */
+   body.profile-page .stat-card h3::after {
+       content: none;
+   }
+
+   body.profile-page .stat-card p {
+       color:          rgba(255, 255, 255, 0.45);
+       font-size:      0.7rem;
+       font-weight:    700;
+       text-transform: uppercase;
+       letter-spacing: 0.08em;
+       line-height:    1.3;
+       margin:         0;
+   }
+
+
+   /* ── 6. GENRES SECTION ─────────────────────────────────────── */
+
+   body.profile-page #profile-genres {
+       background:    rgba(255, 255, 255, 0.03);
+       border:        1px solid rgba(255, 255, 255, 0.07);
+       border-radius: 16px;
+       padding:       1.5rem 2rem;
+   }
+
+   body.profile-page #profile-genres h2 {
+       color:          rgba(255, 255, 255, 0.55);
+       font-size:      0.72rem;
+       font-weight:    700;
+       text-transform: uppercase;
+       letter-spacing: 0.1em;
+       margin-bottom:  1.1rem;
+   }
+
+   body.profile-page #genres-list {
+       display:   flex;
+       flex-wrap: wrap;
+       gap:       0.6rem;
+   }
+
+   /* Capsule genre tags — match movie-detail gold style */
+   body.profile-page #genres-list .genre-tag {
+       border:        1.5px solid #D4AF37;
+       padding:       0.4rem 1.1rem;
+       border-radius: 50px;
+       color:         #F5C842;
+       font-size:     0.85rem;
+       font-weight:   600;
+       background:    rgba(212, 175, 55, 0.06);
+       cursor:        default;
+       transition:    box-shadow 0.3s ease, background 0.3s ease;
+       letter-spacing: 0.02em;
+   }
+
+   body.profile-page #genres-list .genre-tag:hover {
+       background:  rgba(212, 175, 55, 0.14);
+       box-shadow:  0 0 12px 3px rgba(255, 215, 0, 0.35);
+   }
+
+   body.profile-page .empty-msg {
+       color:     rgba(255, 255, 255, 0.3);
+       font-size: 0.9rem;
+   }
+
+
+   /* ── 7. THIN GOLD SEPARATOR between hero and container ─────── */
+
+   body.profile-page .profile-hero + #profile-container {
+       /* The border-top on #profile-container already handles this,
+          but we add a matching inner glow */
+       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55),
+                   inset 0 1px 0 rgba(212, 175, 55, 0.12);
+   }
+
+
+   /* ── 8. RESPONSIVE ─────────────────────────────────────────── */
+
+   @media (max-width: 640px) {
+       body.profile-page .profile-hero {
+           flex-direction: column;
+           align-items: center;
+           text-align: center;
+       }
+       body.profile-page #profile-avatar {
+           margin: 2rem auto 0;
+       }
+       body.profile-page #profile-info {
+           padding: 1rem 1.5rem 2rem;
+           align-items: center;
+       }
+       body.profile-page #profile-info h1::after {
+           margin: 0.55rem auto 0;
+       }
+       body.profile-page #profile-stats {
+           flex-direction: column;
+       }
+       body.profile-page .stat-card {
+           border-radius: 14px;
+       }
+   }
+   
+
+
+/* ── 1. PAGE SHELL ─────────────────────────────────────────── */
+
+body.profile-page {
+    display:         flex;
+    flex-direction:  column;
+    align-items:     center;
+    padding:         0;
+    background:      linear-gradient(135deg, #C01820 0%, #7f0000 50%, #2d2d2d 100%);
+    min-height:      100vh;
+    overflow-x:      hidden;
+}
+
+/* Navbar stays full-width / sticky — no changes needed */
+body.profile-page #navbar {
+    width: 100%;
+}
+
+
+/* ── 2. CARD SHELL ─────────────────────────────────────────── */
+/*
+   .profile-hero  → top half of the card  (avatar + identity)
+   #profile-container → bottom half        (stats + genres)
+   Together they form one seamless card.
+*/
+
+body.profile-page .profile-hero {
+    width:            100%;
+    max-width:        900px;
+    margin:           2.5rem auto 0;
+    padding:          2.5rem 3rem;
+    background:       #0a1628;
+    border-radius:    22px 22px 0 0;
+    border:           1px solid rgba(255, 255, 255, 0.07);
+    border-bottom:    none;
+    box-shadow:       0 -8px 40px rgba(0, 0, 0, 0.35);
+    display:          flex;
+    align-items:      center;               /* center so avatar never stretches */
+    gap:              2.5rem;
+    position:         relative;
+    overflow:         hidden;
+}
+
+/* Red-to-transparent ambient glow behind avatar side */
+body.profile-page .profile-hero::before {
+    content:    '';
+    position:   absolute;
+    inset:      0;
+    background: linear-gradient(
+        120deg,
+        rgba(237, 29, 36, 0.18) 0%,
+        transparent 55%
+    );
+    pointer-events: none;
+}
+
+body.profile-page #profile-container {
+    width:         100%;
+    max-width:     900px;
+    margin:        0 auto 3rem;
+    padding:       2rem 2.5rem 2.5rem;
+    background:    #0a1628;
+    border-radius: 0 0 22px 22px;
+    border:        1px solid rgba(255, 255, 255, 0.07);
+    border-top:    1px solid rgba(212, 175, 55, 0.18);
+    box-shadow:    0 30px 60px rgba(0, 0, 0, 0.55);
+}
+
+
+/* ── 3. PROFILE HERO — AVATAR CIRCLE ───────────────────────── */
+
+body.profile-page #profile-avatar {
+    flex-shrink:     0;
+    width:           90px;
+    height:          90px;
+    aspect-ratio:    1 / 1;
+    border-radius:   50%;
+    background:      var(--marvel-red);
+    border:          3px solid #D4AF37;
+    box-shadow:      0 0 0 7px rgba(212, 175, 55, 0.12),
+                     0 0 32px rgba(237, 29, 36, 0.5);
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    font-size:       2.4rem;
+    font-weight:     800;
+    color:           #fff;
+    letter-spacing:  -1px;
+    margin:          0;
+}
+
+/* ── 4. PROFILE HERO — RIGHT: IDENTITY ─────────────────────── */
+
+/* ── 4. PROFILE HERO — RIGHT: IDENTITY ─────────────────────── */
+
+body.profile-page #profile-info {
+    flex:            1;
+    padding:         0;
+    display:         flex;
+    flex-direction:  column;
+    justify-content: center;
+    gap:             0.3rem;
+}
+
+body.profile-page #profile-info h1 {
+    color:          #fff;
+    font-size:      2.1rem;
+    font-weight:    800;
+    line-height:    1.1;
+    margin-bottom:  0.2rem;
+    letter-spacing: -0.5px;
+    width:          fit-content; /* shrinks to text — makes ::after match name length */
+}
+
+/* Gold accent line — always exactly as wide as the name */
+body.profile-page #profile-info h1::after {
+    content:       '';
+    display:       block;
+    width:         100%;
+    height:        3px;
+    background:    linear-gradient(90deg, #D4AF37 0%, rgba(212,175,55,0.2) 100%);
+    border-radius: 2px;
+    margin-top:    0.55rem;
+}
+
+body.profile-page #profile-info p {
+    color:      rgba(255, 255, 255, 0.5);
+    font-size:  0.92rem;
+    margin-top: 0.55rem;
+    font-weight: 500;
+}
+
+/* "Member since" gets a subtle badge feel */
+body.profile-page #profile-member-since {
+    display:        inline-flex;
+    align-items:    center;
+    gap:            0.4rem;
+    margin-top:     0.75rem !important;
+    padding:        0.35rem 0.9rem;
+    border-radius:  50px;
+    background:     rgba(212, 175, 55, 0.1);
+    border:         1px solid rgba(212, 175, 55, 0.3);
+    color:          #F5C842 !important;
+    font-size:      0.8rem !important;
+    font-weight:    700 !important;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    width:          fit-content;
+}
+
+
+/* ── 5. STATS ROW — CAPSULE PILLS ──────────────────────────── */
+
+body.profile-page #profile-stats {
+    display:       flex;
+    gap:           1rem;
+    margin-bottom: 1.75rem;
+}
+
+body.profile-page .stat-card {
+    flex:            1;
+    background:      rgba(255, 255, 255, 0.04);
+    border:          1px solid rgba(255, 255, 255, 0.08);
+    border-radius:   50px;
+    border-top:      1px solid rgba(255, 255, 255, 0.08); /* remove old red bar */
+    padding:         1.25rem 2rem;
+    display:         flex;
+    flex-direction:  column;
+    align-items:     center;
+    justify-content: center;
+    gap:             0.25rem;
+    transition:      background 0.3s, box-shadow 0.3s;
+}
+
+body.profile-page .stat-card:hover {
+    background:  rgba(255, 255, 255, 0.08);
+    box-shadow:  0 0 0 1px rgba(212, 175, 55, 0.25),
+                 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+body.profile-page .stat-card h3 {
+    color:       #fff;
+    font-size:   2.2rem;
+    font-weight: 800;
+    margin:      0;
+    line-height: 1;
+}
+
+/* No dot — remove the ::after entirely */
+body.profile-page .stat-card h3::after {
+    content: none;
+}
+
+body.profile-page .stat-card p {
+    color:          rgba(255, 255, 255, 0.45);
+    font-size:      0.7rem;
+    font-weight:    700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height:    1.3;
+    margin:         0;
+}
+
+
+/* ── 6. GENRES SECTION ─────────────────────────────────────── */
+
+body.profile-page #profile-genres {
+    background:    rgba(255, 255, 255, 0.03);
+    border:        1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    padding:       1.5rem 2rem;
+}
+
+body.profile-page #profile-genres h2 {
+    color:          rgba(255, 255, 255, 0.55);
+    font-size:      0.72rem;
+    font-weight:    700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom:  1.1rem;
+}
+
+body.profile-page #genres-list {
+    display:   flex;
+    flex-wrap: wrap;
+    gap:       0.6rem;
+}
+
+/* Capsule genre tags — match movie-detail gold style */
+body.profile-page #genres-list .genre-tag {
+    border:        1.5px solid #D4AF37;
+    padding:       0.4rem 1.1rem;
+    border-radius: 50px;
+    color:         #F5C842;
+    font-size:     0.85rem;
+    font-weight:   600;
+    background:    rgba(212, 175, 55, 0.06);
+    cursor:        default;
+    transition:    box-shadow 0.3s ease, background 0.3s ease;
+    letter-spacing: 0.02em;
+}
+
+body.profile-page #genres-list .genre-tag:hover {
+    background:  rgba(212, 175, 55, 0.14);
+    box-shadow:  0 0 12px 3px rgba(255, 215, 0, 0.35);
+}
+
+body.profile-page .empty-msg {
+    color:     rgba(255, 255, 255, 0.3);
+    font-size: 0.9rem;
+}
+
+
+/* ── 7. THIN GOLD SEPARATOR between hero and container ─────── */
+
+body.profile-page .profile-hero + #profile-container {
+    /* The border-top on #profile-container already handles this,
+       but we add a matching inner glow */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55),
+                inset 0 1px 0 rgba(212, 175, 55, 0.12);
+}
+
+
+/* ── 8. RESPONSIVE ─────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+    body.profile-page .profile-hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    body.profile-page #profile-avatar {
+        margin: 2rem auto 0;
+    }
+    body.profile-page #profile-info {
+        padding: 1rem 1.5rem 2rem;
+        align-items: center;
+    }
+    body.profile-page #profile-info h1::after {
+        margin: 0.55rem auto 0;
+    }
+    body.profile-page #profile-stats {
+        flex-direction: column;
+    }
+    body.profile-page .stat-card {
+        border-radius: 14px;
+    }
+}
+
+.watchlist-strip {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 1px 6px;
+    background: none;
+    color: #c0392b;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    border: 1px solid #c0392b;
+    border-radius: 20px;
+}
