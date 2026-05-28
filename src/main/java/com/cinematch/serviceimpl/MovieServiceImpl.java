@@ -12,7 +12,10 @@ import com.cinematch.entity.Movie;
 import com.cinematch.repository.MovieRepository;
 import com.cinematch.service.MovieService;
 
+import jakarta.transaction.Transactional;
+
 @Service
+@Transactional
 public class MovieServiceImpl implements MovieService {
 
 	private MovieRepository movieRepository;

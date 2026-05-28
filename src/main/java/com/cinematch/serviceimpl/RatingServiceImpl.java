@@ -19,8 +19,11 @@ import com.cinematch.repository.UserRepository;
 import com.cinematch.service.RatingService;
 import com.cinematch.util.AuthUtil;
 
+import jakarta.transaction.Transactional;
+
 
 @Service
+@Transactional
 public class RatingServiceImpl implements RatingService {
 
 	private AuthUtil authUtil;

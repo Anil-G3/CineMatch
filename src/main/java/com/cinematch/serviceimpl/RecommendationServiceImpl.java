@@ -16,7 +16,10 @@ import com.cinematch.repository.UserRepository;
 import com.cinematch.service.RecommendationService;
 import com.cinematch.util.AuthUtil;
 
+import jakarta.transaction.Transactional;
+
 @Service
+@Transactional
 public class RecommendationServiceImpl implements RecommendationService {
 
 	private AuthUtil authUtil;
