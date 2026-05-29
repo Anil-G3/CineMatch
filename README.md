@@ -15,7 +15,7 @@
 
 | | |
 |---|---|
-| 🖥️ Live App | [*(add your deployed URL here)*](https://cinematch-zevl.onrender.com/) |
+| 🖥️ Live App | https://cinematch-zevl.onrender.com/ |
 | 💻 GitHub | [CineMatch](https://github.com/Anil-G3/CineMatch) |
 
 ---
@@ -42,7 +42,7 @@ CineMatch is a full-stack movie recommender system. Users rate movies, build a w
 | ORM | Hibernate |
 | Database | MySQL |
 | Notifications | JavaMail (Email) |
-| Frontend | HTML, CSS, JavaScript |
+| Frontend | HTML, CSS, JavaScript (served as static files via Spring Boot) |
 | Tools | Maven, Postman, Git |
 
 ---
@@ -72,7 +72,6 @@ POST /api/auth/logout     → Clears the cookie
 | Watchlist | Add, Remove, View personal watchlist |
 | Recommendations | Fetch personalized movie suggestions |
 | Profile | View and update user profile |
-
 
 ---
 
@@ -120,14 +119,28 @@ Server starts at `http://localhost:8080`
 src/
 ├── main/
 │   ├── java/com/cinematch/
+│   │   ├── config/           # Security, CORS, and app configuration
 │   │   ├── controller/       # REST controllers
-│   │   ├── service/          # Business logic
-│   │   ├── repository/       # JPA repositories
-│   │   ├── model/            # Entity classes
 │   │   ├── dto/              # Request/Response DTOs
-│   │   ├── security/         # JWT filter, Spring Security config
-│   │   └── config/           # App configuration
+│   │   ├── entity/           # JPA entity classes
+│   │   ├── exception/        # Global exception handling
+│   │   ├── repository/       # JPA repositories
+│   │   ├── service/          # Service interfaces
+│   │   ├── serviceimpl/      # Service implementations
+│   │   ├── util/             # Utility classes
+│   │   └── CineMatchApplication.java
 │   └── resources/
+│       ├── static/
+│       │   ├── css/
+│       │   ├── js/
+│       │   ├── image/
+│       │   ├── home.html
+│       │   ├── login.html
+│       │   ├── register.html
+│       │   ├── movie-detail.html
+│       │   ├── recommendations.html
+│       │   ├── watchlist.html
+│       │   └── profile.html
 │       └── application.properties
 ```
 
