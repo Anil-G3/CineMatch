@@ -33,6 +33,7 @@ public class SecurityConfig {
             	    .requestMatchers("/js/**").permitAll()
             	    .requestMatchers("/css/**").permitAll()
             	    .requestMatchers("/image/*").permitAll()
+            	    .requestMatchers("/ping").permitAll()
             	    .anyRequest().authenticated())
             .addFilterBefore(jwtFilter,
                 UsernamePasswordAuthenticationFilter.class);

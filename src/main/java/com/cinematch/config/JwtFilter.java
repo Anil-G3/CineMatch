@@ -39,12 +39,10 @@ public class JwtFilter extends OncePerRequestFilter {
         String email = null;
 
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            try {
+
                 token = authHeader.substring(7);
                 email = jwtUtil.extractEmail(token);
-            } catch (Exception e) {
-                // malformed token — email stays null
-            }
+           
         }
 
         if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
