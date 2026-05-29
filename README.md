@@ -50,14 +50,14 @@ CineMatch is a full-stack movie recommender system. Users rate movies, build a w
 ## 🔐 Auth Flow
 
 1. User registers or logs in → server issues a signed JWT token
-2. Token is stored in an **HTTP Cookie** — frontend never handles it manually
-3. Cookie is automatically sent with every subsequent request by the browser
-4. Spring Security filter reads and validates the token from the cookie on every protected route
+2. Token is stored in **localStorage** on the client side
+3. Frontend attaches the token in the `Authorization: Bearer <token>` header on every request
+4. Spring Security filter validates the token on every protected route
 
 ```
 POST /api/auth/register   → Register a new user
-POST /api/auth/login      → Sets JWT token in HTTP Cookie
-POST /api/auth/logout     → Clears the cookie
+POST /api/auth/login      → Returns JWT token
+POST /api/auth/logout     → Clears the token
 ```
 
 ---
