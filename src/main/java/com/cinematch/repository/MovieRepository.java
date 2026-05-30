@@ -15,6 +15,7 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     	    SELECT DISTINCT m
     	    FROM Movie m
     	    LEFT JOIN FETCH m.genres
+    	    ORDER BY m.id
     	""")
     	List<Movie> findAllWithGenres();
     
