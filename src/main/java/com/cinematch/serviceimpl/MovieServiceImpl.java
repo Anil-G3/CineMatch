@@ -28,23 +28,13 @@ public class MovieServiceImpl implements MovieService {
 	@Override
 	public List<MovieResponse> getAllMovies() {
 
-	    long start = System.currentTimeMillis();
-
-	    List<Movie> movies = movieRepository.findAll();
-
-	    System.out.println("findAll took: "
-	            + (System.currentTimeMillis() - start) + " ms");
-
-	    start = System.currentTimeMillis();
+	    List<Movie> movies = movieRepository.findAllWithGenres();
 
 	    List<MovieResponse> response = new ArrayList<>();
 
 	    for (Movie movie : movies) {
 	        response.add(convertToResponse(movie));
 	    }
-
-	    System.out.println("convertToResponse took: "
-	            + (System.currentTimeMillis() - start) + " ms");
 
 	    return response;
 	}
