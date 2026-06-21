@@ -15,7 +15,7 @@
 
 | | |
 |---|---|
-| 🖥️ Live App | https://cinematch-zevl.onrender.com/ |
+| 🖥️ Live App | https://cinematch-29kr.onrender.com |
 | 💻 GitHub | [CineMatch](https://github.com/Anil-G3/CineMatch) |
 
 ---
