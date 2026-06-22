@@ -21,4 +21,11 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     
     List<Movie> findByGenresId(Long genreId);
 
+    @Query("""
+    SELECT DISTINCT m FROM Movie m
+    LEFT JOIN FETCH m.genres g
+    WHERE g.id IN :genreIds
+""")
+List<Movie> findByGenresIdIn(@Param("genreIds") List<Long> genreIds);
+
 }
