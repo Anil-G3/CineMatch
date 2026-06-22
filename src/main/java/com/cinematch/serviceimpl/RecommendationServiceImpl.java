@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
-
+import java.util.Set;
+import java.util.HashSet;
 import com.cinematch.dto.MovieResponse;
 import com.cinematch.entity.Genre;
 import com.cinematch.entity.Movie;
