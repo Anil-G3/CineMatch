@@ -36,42 +36,40 @@ public class RecommendationServiceImpl implements RecommendationService {
 		this.movieRepository = movieRepository;
 	}
 
-	@Override
-	public List<MovieResponse> getRecommendations() {
+@Override
+public List<MovieResponse> getRecommendations() {
 
-	    User currentUser = userRepository.findById(authUtil.getCurrentUser().getId())
-	            .orElseThrow(() -> new RuntimeException("User not found"));
+    User currentUser = userRepository.findById(authUtil.getCurrentUser().getId())
+            .orElseThrow(() -> new RuntimeException("User not found"));
 
-	    List<Genre> preferredGenres = currentUser.getPreferredGenres();
+    List<Genre> preferredGenres = currentUser.getPreferredGenres();
 
-	    if (preferredGenres.isEmpty()) {
-	        return new ArrayList<>();
-	    }
+    if (preferredGenres.isEmpty()) {
+        return new ArrayList<>();
+    }
 
-	    List<Long> ratedMovieIds = ratingRepository.findByUserId(currentUser.getId())
-	            .stream()
-	            .map(rating -> rating.getMovie().getId())
-	            .collect(Collectors.toList());
+    List<Long> genreIds = preferredGenres.stream()
+            .map(Genre::getId)
+            .collect(Collectors.toList());
 
-	    List<Movie> recommendedMovies = new ArrayList<>();
+    Set<Long> ratedMovieIds = ratingRepository.findByUserId(currentUser.getId())
+            .stream()
+            .map(rating -> rating.getMovie().getId())
+            .collect(Collectors.toSet());
 
-	    for (Genre genre : preferredGenres) {
-	        List<Movie> moviesByGenre = movieRepository.findByGenresId(genre.getId());
-	        for (Movie movie : moviesByGenre) {
-	            if (!ratedMovieIds.contains(movie.getId())
-	                    && !recommendedMovies.contains(movie)) {
-	                recommendedMovies.add(movie);
-	            }
-	        }
-	    }
+    List<Movie> allCandidates = movieRepository.findByGenresIdIn(genreIds);
+	
+    Set<Long> seenIds = new HashSet<>();
+    List<MovieResponse> response = new ArrayList<>();
 
-	    List<MovieResponse> response = new ArrayList<>();
-	    for (Movie movie : recommendedMovies) {
-	        response.add(convertToResponse(movie));
-	    }
+    for (Movie movie : allCandidates) {
+        if (!ratedMovieIds.contains(movie.getId()) && seenIds.add(movie.getId())) {
+            response.add(convertToResponse(movie));
+        }
+    }
 
-	    return response;
-	}
+    return response;
+}
 	
 	private MovieResponse convertToResponse(Movie movie) {
 	    List<String> genreNames = new ArrayList<>();
