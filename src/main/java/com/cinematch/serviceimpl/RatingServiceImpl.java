@@ -71,7 +71,7 @@ public class RatingServiceImpl implements RatingService {
 			userRepository.save(currentUser);
 		}
 
-		List<Rating> allRatings = ratingRepository.findByMovieId(movie.getId());
+		List<Rating> allRatings = ratingRepository.findByMovieIdOrderByCreatedAtDesc(movie.getId());
 		double average = allRatings.stream().mapToInt(Rating::getScore).average().orElse(0.0);
 		movie.setAverageRating((float) average);
 		movie.setTotalRatings(allRatings.size());
