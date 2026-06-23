@@ -83,7 +83,7 @@ public class RatingServiceImpl implements RatingService {
 	@Override
 	public List<RatingResponse> getRatingsByMovie(Long movieId) {
 
-		List<Rating> ratings = ratingRepository.findByMovieId(movieId);
+		List<Rating> ratings = ratingRepository.findByMovieIdOrderByCreatedAtDesc(movieId);
 
 		List<RatingResponse> response = new ArrayList<>();
 
