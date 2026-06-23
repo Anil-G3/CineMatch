@@ -22,7 +22,6 @@ public class EmailServiceImpl implements EmailService {
 	@Override
 	public void sendWelcomeEmail(String email, String name) {
 
-		try {
 			SimpleMailMessage message = new SimpleMailMessage();
 			message.setTo(email);
 			message.setSubject("Welcome to CineMatch");
@@ -31,9 +30,6 @@ public class EmailServiceImpl implements EmailService {
 					+ "Enjoy your movie journey!\n\n" + "Team CineMatch");
 
 			mailSender.send(message);
-		} catch (Exception e) {
-			System.out.println("Email not sent: " + e.getMessage());
-		}
 
 	}
 
