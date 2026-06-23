@@ -22,14 +22,18 @@ public class EmailServiceImpl implements EmailService {
 	@Override
 	public void sendWelcomeEmail(String email, String name) {
 
-		SimpleMailMessage message = new SimpleMailMessage();
-		message.setTo(email);
-		message.setSubject("Welcome to CineMatch");
-		message.setText("Hi " + name + ",\n\n" + "Welcome to CineMatch! 🎬\n"
-				+ "Start exploring personalized movie recommendations made just for you.\n\n"
-				+ "Enjoy your movie journey!\n\n" + "Team CineMatch");
-		
-		mailSender.send(message);
+		try {
+			SimpleMailMessage message = new SimpleMailMessage();
+			message.setTo(email);
+			message.setSubject("Welcome to CineMatch");
+			message.setText("Hi " + name + ",\n\n" + "Welcome to CineMatch! 🎬\n"
+					+ "Start exploring personalized movie recommendations made just for you.\n\n"
+					+ "Enjoy your movie journey!\n\n" + "Team CineMatch");
+
+			mailSender.send(message);
+		} catch (Exception e) {
+			System.out.println("Email not sent: " + e.getMessage());
+		}
 
 	}
 
